@@ -1,6 +1,8 @@
 # `nearest-tailwind-colors`
 
-![NPM Version](https://img.shields.io/npm/v/nearest-tailwind-colors)
+<a href="https://www.npmjs.com/package/nearest-tailwind-colors">
+  <img alt="npm version" src="https://img.shields.io/npm/v/nearest-tailwind-colors">
+</a>
 
 ## Overview
 
