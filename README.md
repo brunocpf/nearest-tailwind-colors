@@ -1,5 +1,7 @@
 # `nearest-tailwind-colors`
 
+![NPM Version](https://img.shields.io/npm/v/nearest-tailwind-colors)
+
 ## Overview
 
 `getNearestTailwindColors` is a utility function that calculates the nearest colors from the Tailwind CSS palette using the Euclidean distance formula. It allows customization of the color palette, filtering of specific colors, and choice of color space.
