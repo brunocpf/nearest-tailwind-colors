@@ -4,7 +4,7 @@
   <img alt="npm version" src="https://img.shields.io/npm/v/nearest-tailwind-colors">
 </a>
 
-[Demo](https://bruno-fernandes.dev/demos/nearest-tailwind-color)
+[Demo](https://bruno-fernandes.dev/demos/nearest-tailwind-colors)
 
 ## Overview
 
