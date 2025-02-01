@@ -1,1 +1,1 @@
-export * from "./get-tailwind-nearest-colors";
+export * from "./get-nearest-tailwind-colors";

@@ -1,16 +1,16 @@
-import { getTailwindNearestColors } from "./get-tailwind-nearest-colors";
+import { getNearestTailwindColors } from "./get-nearest-tailwind-colors";
 
-describe("getTailwindNearestColors", () => {
+describe("getNearestTailwindColors", () => {
   it("should throw a TypeError if the input color is invalid", () => {
     const inputColor = "invalid";
 
-    expect(() => getTailwindNearestColors(inputColor)).toThrow(TypeError);
+    expect(() => getNearestTailwindColors(inputColor)).toThrow(TypeError);
   });
 
   it("should return the color from the Tailwind CSS palette with default config", () => {
     const inputColor = "black";
 
-    const result = getTailwindNearestColors(inputColor);
+    const result = getNearestTailwindColors(inputColor);
 
     expect(result).toEqual([
       {
@@ -24,7 +24,7 @@ describe("getTailwindNearestColors", () => {
   it("should return the color from the Tailwind CSS palette (color name)", () => {
     const inputColor = "white";
 
-    const result = getTailwindNearestColors(inputColor, { n: 1 });
+    const result = getNearestTailwindColors(inputColor, { n: 1 });
 
     expect(result).toEqual([
       {
@@ -38,7 +38,7 @@ describe("getTailwindNearestColors", () => {
   it("should return the color from the Tailwind CSS palette (hex)", () => {
     const inputColor = "#ffffff";
 
-    const result = getTailwindNearestColors(inputColor, { n: 1 });
+    const result = getNearestTailwindColors(inputColor, { n: 1 });
 
     expect(result).toEqual([
       {
@@ -52,7 +52,7 @@ describe("getTailwindNearestColors", () => {
   it("should return the color from the Tailwind CSS palette (rgb)", () => {
     const inputColor = "rgb(255, 255, 255)";
 
-    const result = getTailwindNearestColors(inputColor, { n: 1 });
+    const result = getNearestTailwindColors(inputColor, { n: 1 });
 
     expect(result).toEqual([
       {
@@ -66,7 +66,7 @@ describe("getTailwindNearestColors", () => {
   it("should return the 3 nearest colors from the Tailwind CSS palette", () => {
     const inputColor = "oklch(.577 .245 27.325)";
 
-    const result = getTailwindNearestColors(inputColor, { n: 3 });
+    const result = getNearestTailwindColors(inputColor, { n: 3 });
 
     expect(result).toEqual([
       {
@@ -90,7 +90,7 @@ describe("getTailwindNearestColors", () => {
   it("should exclude color", () => {
     const inputColor = "oklch(.577 .245 27.325)";
 
-    const result = getTailwindNearestColors(inputColor, {
+    const result = getNearestTailwindColors(inputColor, {
       n: 3,
       excludeColors: ["red-600"],
     });
@@ -117,7 +117,7 @@ describe("getTailwindNearestColors", () => {
   it("should return the nearest colors in the rgb space", () => {
     const inputColor = "oklch(.577 .245 27.325)";
 
-    const result = getTailwindNearestColors(inputColor, {
+    const result = getNearestTailwindColors(inputColor, {
       space: "rgb",
       n: 3,
     });
@@ -152,7 +152,7 @@ describe("getTailwindNearestColors", () => {
       "custom-yellow": "yellow",
     };
 
-    const result = getTailwindNearestColors(inputColor, {
+    const result = getNearestTailwindColors(inputColor, {
       colors: customPalette,
       n: 3,
       space: "rgb",

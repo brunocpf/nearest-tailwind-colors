@@ -1,8 +1,8 @@
-# `tailwind-nearest-colors`
+# `nearest-tailwind-colors`
 
 ## Overview
 
-`getTailwindNearestColors` is a utility function that calculates the nearest colors from the Tailwind CSS palette using the Euclidean distance formula. It allows customization of the color palette, filtering of specific colors, and choice of color space.
+`getNearestTailwindColors` is a utility function that calculates the nearest colors from the Tailwind CSS palette using the Euclidean distance formula. It allows customization of the color palette, filtering of specific colors, and choice of color space.
 
 This is very useful to quickly find an similar color in the Tailwind CSS palette even when you have a color in another format (e.g., hex, rgb, hsl).
 
@@ -13,15 +13,15 @@ This package also comes with a handy CLI that can be used to find the nearest Ta
 ## Installation
 
 ```bash
-npm install tailwind-nearest-colors
+npm install nearest-tailwind-colors
 ```
 
 ## Usage
 
 ```typescript
-import { getTailwindNearestColors } from "tailwind-nearest-colors";
+import { getNearestTailwindColors } from "nearest-tailwind-colors";
 
-const nearestColors = getTailwindNearestColors("rgb(255, 0, 255)", {
+const nearestColors = getNearestTailwindColors("rgb(255, 0, 255)", {
   n: 3,
 });
 
@@ -59,19 +59,19 @@ A CLI tool is available to quickly find the nearest Tailwind CSS colors from the
 To install it globally:
 
 ```sh
-npm install -g tailwind-nearest-colors
+npm install -g nearest-tailwind-colors
 ```
 
 You may also install it locally or run it directly, which will allow you to have access to the custom colors in your Tailwind CSS theme.
 
 ```sh
-npx tailwind-nearest-colors <color> [options]
+npx nearest-tailwind-colors <color> [options]
 ```
 
 ### Example
 
 ```sh
-npx tailwind-nearest-colors "yellow" --number 3
+npx nearest-tailwind-colors "yellow" --number 3
 ```
 
 ### Options
@@ -92,9 +92,9 @@ Nearest Tailwind colors:
 ## Function Signature
 
 ```typescript
-function getTailwindNearestColors(
+function getNearestTailwindColors(
   inputColor: string,
-  config?: GetTailwindNearestColorsConfig,
+  config?: getNearestTailwindColorsConfig,
 ): ColorOutput[];
 ```
 
@@ -104,7 +104,7 @@ function getTailwindNearestColors(
 
 A valid CSS color (e.g., hex, rgb, hsl) that will be compared against the Tailwind CSS palette or a custom color set.
 
-### `config` (GetTailwindNearestColorsConfig) _(Optional)_
+### `config` (getNearestTailwindColorsConfig) _(Optional)_
 
 An optional configuration object that customizes the behavior of the function.
 

@@ -1,4 +1,4 @@
-import { getTailwindNearestColors } from "../get-tailwind-nearest-colors";
+import { getNearestTailwindColors } from "../get-nearest-tailwind-colors";
 import { Command } from "commander";
 import chalk from "chalk";
 import chroma from "chroma-js";
@@ -51,7 +51,7 @@ program
     try {
       const parsedOptions = optionsSchema.parse(options);
 
-      const results = getTailwindNearestColors(color, {
+      const results = getNearestTailwindColors(color, {
         n: parsedOptions.number,
         excludeColors: parsedOptions.exclude,
         space: parsedOptions.space,
