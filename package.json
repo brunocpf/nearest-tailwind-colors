@@ -15,6 +15,13 @@
   "bin": {
     "nearest-tailwind-colors": "./dist/cli/index.js"
   },
+  "keywords": [
+    "tailwind",
+    "colors",
+    "nearest",
+    "oklch",
+    "cli"
+  ],
   "scripts": {
     "start": "node ./dist/cli/index.js",
     "build": "tsup",
