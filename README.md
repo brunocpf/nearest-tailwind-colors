@@ -8,7 +8,7 @@
 
 `getNearestTailwindColors` is a utility function that calculates the nearest colors from the Tailwind CSS palette using the Euclidean distance formula. It allows customization of the color palette, filtering of specific colors, and choice of color space.
 
-This is very useful to quickly find an similar color in the Tailwind CSS palette even when you have a color in another format (e.g., hex, rgb, hsl).
+This is very useful to quickly find a similar color in the Tailwind CSS palette even when you have a color in another format (e.g., hex, rgb, hsl).
 
 It supports Tailwind V4.0.0 and later (including the oklch color palette), and requires it to be installed as a dependency.
 
@@ -77,8 +77,6 @@ You may also use `npx` to run it immediately:
 ```sh
 npx nearest-tailwind-colors <color> [options]
 ```
-
-If you have installed it to a project, you can run it with `npx`, and the colors from the Tailwind CSS theme in your project will be used.
 
 ### Example
 
@@ -167,9 +165,33 @@ Each object in the array has the following properties:
 
 - Throws a `TypeError` if the input color is invalid or not recognized.
 
+## Advanced Usage
+
+### Using custom colors from the Tailwind CSS theme
+
+If you have custom colors in your Tailwind CSS theme, you may want to take them into account by using the `colors` property of the configuration object. To do so, you need to access the color values by resolving the equivalent CSS variable value in JavaScript, using `getComputedStyle` on the document root.
+
+```typescript
+import colors from "tailwindcss/colors";
+import { getNearestTailwindColors } from "nearest-tailwind-colors";
+
+const styles = getComputedStyle(document.documentElement);
+const customColorNames = ["custom-1", "custom-2", "custom-3"];
+const customColors = customColorNames.reduce((acc, name) => {
+  acc[name] = styles.getPropertyValue(`--color-${name}`);
+  return acc;
+}, {});
+
+const nearestColors = getNearestTailwindColors("rgb(255, 0, 0)", {
+  colors: {
+    ...colors,
+    ...customColors,
+  },
+});
+```
+
 ## Notes
 
-- The function defaults to the Tailwind CSS palette unless a custom palette is provided. If the Tailwind theme in the project this package has been installed as a dependency has been customized, the function will have access to the custom colors.
 - The `distance` value is calculated using Euclidean distance based on the selected color space. The RGB color space will yield different results than the LAB color space, for example.
 
 ## See Also
