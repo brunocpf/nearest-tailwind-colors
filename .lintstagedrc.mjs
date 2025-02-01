@@ -1,13 +1,13 @@
 import { relative } from "path";
 
 const buildEslintCommand = (filenames) =>
-  `eslint --fix ${filenames
+  `eslint --fix "${filenames
     .map((f) => relative(process.cwd(), f))
     .map((f) => {
       console.log(f);
       return f;
     })
-    .join('"  "')}`;
+    .join('" "')}"`;
 
 const buildPrettierCommand = (filenames) =>
   `prettier --write ${filenames
