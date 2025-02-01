@@ -2,7 +2,7 @@ import tailwindCssColors from "tailwindcss/colors";
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
 import chroma from "chroma-js";
 
-export interface GetTailwindNearestColorsConfig {
+export interface GetNearestTailwindColorsConfig {
   /**
    * A color palette to search for the nearest color.
    * Defaults to the Tailwind CSS colors.
@@ -67,14 +67,14 @@ const invalidColors = ["inherit", "current", "transparent"] as const;
  * @returns An array of nearest colors from the Tailwind CSS palette.
  * The size of the array is determined by the `n` parameter, and it is ordered by proximity to the input color.
  */
-export function getTailwindNearestColors(
+export function getNearestTailwindColors(
   inputColor: string,
   {
     colors = tailwindCssColors,
     n = 1,
     excludeColors = [],
     space = "lab",
-  }: GetTailwindNearestColorsConfig = {},
+  }: GetNearestTailwindColorsConfig = {},
 ): ColorOutput[] {
   if (chroma.valid(inputColor) === false) {
     throw new TypeError("Invalid color input");
