@@ -66,11 +66,19 @@ To install it globally:
 npm install -g nearest-tailwind-colors
 ```
 
-You may also install it locally or run it directly, which will allow you to have access to the custom colors in your Tailwind CSS theme.
+Then you can run it like this:
+
+```sh
+nearest-tailwind-colors <color> [options]
+```
+
+You may also use `npx` to run it immediately:
 
 ```sh
 npx nearest-tailwind-colors <color> [options]
 ```
+
+If you have installed it to a project, you can run it with `npx`, and the colors from the Tailwind CSS theme in your project will be used.
 
 ### Example
 
