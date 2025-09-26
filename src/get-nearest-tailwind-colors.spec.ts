@@ -72,7 +72,7 @@ describe("getNearestTailwindColors", () => {
       {
         color: "red-600",
         distance: 0,
-        value: "oklch(0.577 0.245 27.325)",
+        value: "oklch(57.7% 0.245 27.325)",
       },
       {
         color: "red-500",
@@ -126,7 +126,7 @@ describe("getNearestTailwindColors", () => {
       {
         color: "red-600",
         distance: 0,
-        value: "oklch(0.577 0.245 27.325)",
+        value: "oklch(57.7% 0.245 27.325)",
       },
       {
         color: "red-700",

@@ -68,7 +68,7 @@ program
       if (error instanceof z.ZodError) {
         console.error(
           chalk.red("Error:"),
-          error.errors.map((e) => e.message),
+          error.issues.map((e) => e.message),
         );
       } else if (error instanceof TypeError) {
         console.error(chalk.red("Error:"), error.message);
