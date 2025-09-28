@@ -81,44 +81,21 @@ export function getNearestTailwindColors(
   }
 
   const flatColors = flattenColorPalette(colors);
+  const colorsToExclude = [...invalidColors, ...excludeColors];
   const flatColorArray = Object.entries(flatColors)
-    .filter(
-      ([key]) => [...invalidColors, ...excludeColors].includes(key) === false,
-    )
+    .filter(([key]) => colorsToExclude.includes(key) === false)
     .map(([key, value]) => ({
       key,
       value,
     }));
 
-  const colorDistances: ColorOutput[] = [];
+  const colorDistances: ColorOutput[] = flatColorArray.map(
+    ({ key, value }) => ({
+      color: key,
+      value,
+      distance: chroma.distance(inputColor, value, space),
+    }),
+  );
 
-  for (const { key, value } of flatColorArray) {
-    const distance = chroma.distance(inputColor, value, space);
-
-    if (colorDistances.length < n) {
-      colorDistances.push({
-        color: key,
-        distance,
-        value,
-      });
-    } else {
-      const maxDistance = Math.max(
-        ...colorDistances.map(({ distance }) => distance),
-      );
-
-      if (distance < maxDistance) {
-        const maxDistanceIndex = colorDistances.findIndex(
-          ({ distance }) => distance === maxDistance,
-        );
-
-        colorDistances[maxDistanceIndex] = {
-          color: key,
-          distance,
-          value,
-        };
-      }
-    }
-  }
-
-  return colorDistances.sort((a, b) => a.distance - b.distance);
+  return colorDistances.sort((a, b) => a.distance - b.distance).slice(0, n);
 }
