@@ -2,6 +2,10 @@
   "name": "nearest-tailwind-colors",
   "version": "1.0.0",
   "description": "Find the nearest tailwind colors. Compatible with Tailwind V4 OKLCH colors.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brunocpf/nearest-tailwind-colors.git"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
