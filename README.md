@@ -16,6 +16,8 @@ It supports Tailwind V4.0.0 and later (including the oklch color palette), and r
 
 This package also comes with a handy CLI that can be used to find the nearest Tailwind CSS color from the command line.
 
+**[An MCP server is now available for integration with AI workflows](https://github.com/brunocpf/nearest-tailwind-colors-mcp)**
+
 ## Installation
 
 ```bash
